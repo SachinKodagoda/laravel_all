@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Post;
 
-use Illuminate\Http\Request;
-use App\Post;
 use App\Http\Controllers\Controller;
+use App\Post;
+use Illuminate\Http\Request;
+use Illuminate\Pipeline\Pipeline;
+
 // use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
@@ -22,19 +24,13 @@ class PostController extends Controller
 
     public function getAllPosts()
     {
-        // $posts =  DB::table('posts')->paginate(2);
-        // $posts =  Post::paginate(5);
+//         $posts =  DB::table('posts')->paginate(2);
+//         $posts =  Post::paginate(5);
+//        if(request()->has('active')){
+//            $posts->where('active',request('active'));
+//        }
 
-        $posts = Post::query();
-
-        if(request()->has('active')){
-            $posts->where('active',request('active'));
-        }
-
-        if(request()->has('sort')){
-            $posts->where('title',request('sort'));
-        }
-
+        $posts = Post::allPosts();
         return view('Post.all', ['posts' => $posts]);
     }
 

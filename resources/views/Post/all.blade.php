@@ -25,5 +25,5 @@
         @endforeach
     </tbody>
 </table>
-{{ $posts->links()}}
+{{ $posts->appends(request()->input())->links()}}
 @endsection
