@@ -17,10 +17,12 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->unsignedSmallInteger('active');
+            $table->unsignedSmallInteger('active_state')->default(1);
             $table->timestamps();
         });
     }
+
+    //$table->text('description')->nullable(); -- make this field not essential, no error will trow
 
     /**
      * Reverse the migrations.

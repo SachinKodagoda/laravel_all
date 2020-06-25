@@ -5,10 +5,10 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link {{ Request::route()->getName() == 'getAllPosts' ? 'active' : 'diact'}}" href="{{ route('getAllPosts') }}">HOME</a>
+        <a class="nav-link {{ Request::route()->getName() == 'post_index' ? 'active' : 'diact'}}" href="{{ route('post_index') }}">HOME</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{ Request::route()->getName() == 'addPost' ?  'active' : 'diact'}}" href="{{ route('addPost') }}">ADD</a>
+        <a class="nav-link {{ Request::route()->getName() == 'post_create' ?  'active' : 'diact'}}" href="{{ route('post_create') }}">ADD</a>
       </li>
     </ul>
   </div>

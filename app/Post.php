@@ -7,6 +7,8 @@ use Illuminate\Pipeline\Pipeline;
 
 class Post extends Model
 {
+//    protected $fillable = ['name','description']; // to allow mass assignment
+    protected $guarded = []; // to switch off mass assignment for the model-  it will unguarded all
     public static function allPosts()
     {
         return app(Pipeline::class)
@@ -16,6 +18,6 @@ class Post extends Model
                 \App\QueryFilters\Sort::class,
             ])
             ->thenReturn()
-            ->paginate(5);
+            ->paginate(7);
     }
 }

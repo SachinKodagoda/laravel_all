@@ -9,6 +9,6 @@ $factory->define(Post::class, function (Faker $faker) {
     return [
         'title' => $faker->sentence(3),
         'description' => $faker->text,
-        'active' => random_int(0,1),
+        'active_state' => random_int(0,1),
     ];
 });
