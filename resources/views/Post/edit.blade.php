@@ -8,10 +8,10 @@
             @method('PATCH')
             @include('includes.form')
             <div class="form-group">
-                <label for="active_state">Activate State</label>
-                <select name="active_state" class="form-control">
-                    <option value="0" {{ $post->active_state == 0 ? 'selected' : ''}}>0</option>
-                    <option value="1" {{ $post->active_state == 1 ? 'selected' : ''}}>1</option>
+                <label for="active">Activate State</label>
+                <select name="active" class="form-control">
+                    <option value="1" {{ $post->active == 1 ? 'selected' : ''}}>Active</option>
+                    <option value="2" {{ $post->active == 2 ? 'selected' : ''}}>Deactive</option>
                 </select>
             </div>
             <div class="btn btn-group">

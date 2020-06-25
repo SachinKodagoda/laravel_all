@@ -17,7 +17,7 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->unsignedSmallInteger('active_state')->default(1);
+            $table->unsignedSmallInteger('active')->default(1);
             $table->timestamps();
         });
     }

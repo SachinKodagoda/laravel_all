@@ -1,7 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 
+use App\Mail\WelcomeMail;
+use Illuminate\Support\Facades\Route;
+use \Illuminate\Support\Facades\Mail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+ Route::get('/', function () {
+     return view('welcome');
+ });
 
 
 Route::namespace('Post')->prefix('posts')->group(function () {
@@ -26,14 +28,6 @@ Route::namespace('Post')->prefix('posts')->group(function () {
     Route::get('/{post}/edit', 'PostController@edit')->name('post_edit');
     Route::patch('/{post}', 'PostController@update')->name('post_update');
     Route::delete('/{post}', 'PostController@destroy')->name('post_destroy');
-
-//    Route::get('/update/{id}', 'PostController@updatePostLink')->name('updatePostLink');
-//    Route::post('/updatePost', 'PostController@updatePost')->name('updatePost');
-//
-//    Route::post('/addPostLink', 'PostController@addPostLink')->name('addPostLink');
-//    Route::get('/addPost', 'PostController@addPost')->name('addPost');
-//
-//    Route::get('/delete/{id}', 'PostController@deletePost')->name('deletePost');
 });
 
 Route::get('/clear-cache', function() {
@@ -41,9 +35,15 @@ Route::get('/clear-cache', function() {
     return "Cache is cleared";
 });
 
-//Restfull Controllers
-//Route::get('/posts', 'PostController@index');
-//Route::get('/posts/create', 'PostController@create');
-//Route::post('/posts', 'PostController@store');
-//Route::get('/posts/{post}', 'PostController@show');
+Route::get('/email', function(){
+    Mail::to('abinaya.yoga.k@gmail.com')->send(new WelcomeMail());
+    return new WelcomeMail();
+});
 
+
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
